@@ -1,0 +1,43 @@
+/* request 공통 */
+
+.request .request_area {
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.request .request_area .data {
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.request .request_area h1 {
+    text-align: center;
+}
+
+.request .request_area > * {
+    width: 100%;
+}
+
+.request .request_area #btnSubmit {
+    width: 100%;
+    padding: 17px 0;
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    background-color: #333;
+    box-sizing: border-box;    
+    border: none;
+    border-radius: 10px;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.request .product_img {
+    width: 78px;
+}

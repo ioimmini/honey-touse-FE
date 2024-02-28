@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쇼핑몰</title>
+    <!-- 스와이퍼 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- 웹 폰트 나눔스퀘어 네오 -->
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/checkout/checkout.css">
+    <link rel="stylesheet" href="./return.css">
+    <script src="https://kit.fontawesome.com/931727edad.js" crossorigin="anonymous"></script>  
+</head>
+
+<body>
+    <header class="header">
+        
+    </header>
+
+	<section class="orders request return">
+		<div class="common-container">
+			<div class="request_area">
+				<h1>교환·반품 신청</h1>
+				<p class="data sub-text">
+					<span class="order_date">2024.01.30</span>
+					(주문번호 :
+					<span class="order_num"></span>
+					)
+				</p>
+                <section class="info-product">
+                    <div class="section_title">
+                        <h2>주문 상품</h2>
+                        <span class="sub-title">1건</span>
+                    </div>
+                    <article class="section_content">
+                        <div class="wrap">
+                            <div class="info_line">
+                                <div class="product_img">
+                                    <img src="/assets/img/@product_01.jpg" alt="상품이미지.jpg" />
+                                </div>
+                                <div class="product_detail">
+                                    <p class="name">포근한 이불 베개 세트 (3colors)</p>
+                                    <p class="option sub-text">색상 : Ivory</p>
+                                    <p class="price">
+                                        15,000원
+                                        <span class="qty sub-text">1개</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <section class="payment">
+                    <div class="section_title">
+                        <h2>결제 금액</h2>
+                    </div>
+                    <article class="section_content">
+                        <div class="wrap">
+                            <dl class="payment_list">
+                                <div class="info_line">
+                                    <dt class="title">총 상품 금액</dt>
+                                    <dd class="desc">15,000원</dd>
+                                </div>
+                                <div class="info_line">
+                                    <dt class="title">총 배송비</dt>
+                                    <dd class="desc">0원</dd>
+                                </div>
+                                <hr />
+                                <div class="info_line ttl">
+                                    <dt class="title">총 결제 금액</dt>
+                                    <dd class="desc">15,000원</dd>
+                                </div>
+                                <hr />
+                                <div class="info_line">
+									<dt class="title">결제일시</dt>
+									<dd class="desc">${order_date}</dd>
+								</div>
+                            </dl>
+                </section>
+                <form action="./result.html" method="POST">
+                <!-- action="url" method="post" -->
+                <!-- action => 폼 데이터를 전송할 url 입력 -->
+                    <!-- 교환/반품 버튼 -->
+                    <div class="btn_line">
+                        <button id="btnExchange">교환</button>
+                        <button id="btnReturn">반품</button>
+                    </div>
+
+                    <!-- 교환 옵션 -->
+                    <div id="infoExchange" class="hidden">
+                        <section class="product_option">
+                            <div class="section_title">
+                                <h2>교환 옵션 선택</h2>
+                            </div>
+                            <ul class="select_list">
+                                <li>
+                                    <select name="selectSize" id="selectSize">
+                                        <option value="" selected disabled>size</option>
+                                        <option value="0">S</option>
+                                        <option value="1">M</option>
+                                        <option value="2">L</option>
+                                    </select>
+                                </li>                    
+                                <li>
+                                    <select name="selectColor" id="selectColor">
+                                        <option value="" selected disabled>color</option>
+                                        <option value="0">Black</option>
+                                        <option value="1">Ivory</option>
+                                        <option value="2">Gray</option>
+                                    </select>
+                                </li>                    
+                            </ul>
+                            <div id="selectedOption">
+                                <p>선택한 옵션<br /><span id="selectedText"></span></p>
+                            </div>
+                        </section>
+                        <section class="payment">
+                            <div class="section_title">
+                                <h2>교환 배송비</h2>
+                            </div>
+                            <article class="section_content">
+                                <div class="wrap">
+                                    <dl class="payment_list">
+                                        <div class="info_line bold">
+                                            <dt class="title">총 결제 금액</dt>
+                                            <dd class="desc">5,000원</dd>
+                                        </div>
+                                        <hr />
+                                        <div class="info_line">
+                                            <dt class="title">반품 배송비</dt>
+                                            <dd class="desc">2,500원</dd>
+                                        </div>
+                                        <div class="info_line">
+                                            <dt class="title">교환 배송비</dt>
+                                            <dd class="desc">2,500원</dd>
+                                        </div>
+                                    </dl>
+                                </div>
+                            </article>
+                        </section>
+                    </div>
+
+                    <!-- 반품 옵션 -->
+                    <div id="infoReturn" class="hidden">
+                        <section class="reason">
+                            <div class="section_title">
+                                <h2>반품 신청 사유</h2>
+                            </div>
+                            <textarea id="returnReason" rows="4" cols="50" placeholder="반품 사유를 입력하세요."></textarea>
+                        </section>
+                        <section class="payment">
+                            <div class="section_title">
+                                <h2>환불 예정 금액</h2>
+                            </div>
+                            <article class="section_content">
+                                <div class="wrap">
+                                    <dl class="payment_list">
+                                        <div class="info_line bold">
+                                            <dt class="title">총 환불 금액</dt>
+                                            <dd class="desc">15,000원</dd>
+                                        </div>
+                                        <hr />
+                                        <div class="info_line">
+                                            <dt class="title">상품 금액</dt>
+                                            <dd class="desc">15,000원</dd>
+                                        </div>
+                                        <div class="info_line">
+                                            <dt class="title">배송비</dt>
+                                            <dd class="desc">0원</dd>
+                                        </div>
+                                    </dl>
+                                </div>
+                            </article>
+                        </section>
+                    </div>
+
+                    <input type="submit" value="신청" class="hidden" id="btnSubmit">
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        
+    </footer>
+    <script type="module" src="/assets/js/common.js"></script>
+    <script src="./return.js" ></script>
+</body>
+
+</html>

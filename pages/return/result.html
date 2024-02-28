@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쇼핑몰</title>
+    <!-- 스와이퍼 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- 웹 폰트 나눔스퀘어 네오 -->
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/checkout/checkout.css">
+    <link rel="stylesheet" href="./return.css">
+    <link rel="stylesheet" href="./return-result.css">
+    <script src="https://kit.fontawesome.com/931727edad.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="header">
+        
+    </header>
+
+	<section class="orders result return">
+		<div class="common-container">
+			<div class="result_area">
+				<h1>교환·반품 신청이 완료되었습니다.</h1>
+				<p class="data sub-text">
+					<span class="order_date">2024.01.30</span>
+					(주문번호 :
+					<span class="order_num"></span>
+					)
+				</p>
+				<div class="result_img">
+					<img src="/assets/img/return_success.webp" alt="교환반품완료.jpg" />
+				</div>
+				<p class="guide">주문내역 및 상세정보는 아래에서 확인하실 수 있습니다.</p>
+				<a href="/order-list/">
+					<button id="btnOrderlist">주문내역 상세 보기</button>
+				</a>
+                <section class="request_desc">
+					<div class="section_title">
+						<h2>신청 내용</h2>
+					</div>
+					<article class="section_content">
+						<div class="wrap">
+                            이전 페이지에서 정보 받아와야함.
+                        </div>
+                    </article>
+                </section>
+				<section class="payment">
+					<div class="section_title">
+						<h2>결제예정 금액</h2>
+					</div>
+					<article class="section_content">
+						<div class="wrap">
+							<dl class="payment_list">
+								<div class="info_line bold">
+									<dt class="title">총 환불 금액</dt>
+									<dd class="desc">15,000원</dd>
+								</div>
+								<hr />
+								<div class="info_line">
+									<dt class="title">상품 금액</dt>
+									<dd class="desc">15,000원</dd>
+								</div>
+								<div class="info_line">
+									<dt class="title">배송비</dt>
+									<dd class="desc">0원</dd>
+								</div>
+							</dl>
+						</div>
+					</article>
+				</section>
+			</div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        
+    </footer>
+    <script type="module" src="/assets/js/common.js"></script>
+</body>
+
+</html>

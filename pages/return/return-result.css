@@ -1,0 +1,46 @@
+.result .result_area {
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.result .result_area .data, .guide {
+    margin-bottom: 16px;
+    color: #555;
+}
+
+.result .result_area .result_img {
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.result .result_area .result_img img {
+    width: 100%;
+}
+
+.result .result_area a {
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+
+.result .result_area #btnOrderlist {
+    width: 100%;
+    margin-top: 15px;
+    padding: 17px 0;
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    background-color: #333;
+}
+
+.result .result_area section {
+    width: 100%;
+}

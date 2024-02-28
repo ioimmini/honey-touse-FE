@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쇼핑몰</title>
+    <!-- 스와이퍼 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- 웹 폰트 나눔스퀘어 네오 -->
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/checkout/checkout.css">
+    <link rel="stylesheet" href="/return/return-result.css">
+    <script src="https://kit.fontawesome.com/931727edad.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="header">
+        
+    </header>
+
+	<section class="orders result order-modify">
+		<div class="common-container">
+			<div class="result_area">
+				<h1>주문정보 수정 신청이 완료되었습니다.</h1>
+				<p class="data sub-text">
+					<span class="order_date">2024.01.30</span>
+					(주문번호 :
+					<span class="order_num"></span>
+					)
+				</p>
+				<div class="result_img">
+					<img src="/assets/img/order-modify_success.webp" alt="주문수정완료.jpg" />
+				</div>
+				<p class="guide">주문내역 및 상세정보는 아래에서 확인하실 수 있습니다.</p>
+				<a href="/order-list/">
+					<button id="btnOrderlist">주문내역 상세 보기</button>
+				</a>
+                <section class="info-product">
+                    <div class="section_title">
+                        <h2>주문 상품</h2>
+                        <span class="sub-title">1건</span>
+                    </div>
+                    <article class="section_content">
+                        <div class="wrap">
+                            <div class="info_line">
+                                <div class="product_img">
+                                    <img src="/assets/img/@product_01.jpg" alt="상품이미지.jpg" />
+                                </div>
+                                <div class="product_detail">
+                                    <p class="name">포근한 이불 베개 세트 (3colors)</p>
+                                    <p class="option sub-text">색상 : Ivory</p>
+                                    <p class="price">
+                                        15,000원
+                                        <span class="qty sub-text">1개</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <section class="info-delivery">
+                    <div class="section_title">
+                        <h2>배송 정보</h2>
+                    </div>
+                    <article class="section_content">
+                        <div class="wrap">
+                            <dl class="info_list">
+                                <div class="info_line">
+                                    <dt class="title">수령인</dt>
+                                    <dd class="desc">엘리스</dd>
+                                </div>
+                                <div class="info_line">
+                                    <dt class="title">휴대폰</dt>
+                                    <dd class="desc">010-1234-5678</dd>
+                                </div>
+                                <div class="info_line">
+                                    <dt class="title">주소</dt>
+                                    <dd class="desc">00시 00구 00로00길 0-0 101호</dd>
+                                </div>
+                                <div class="info_line">
+                                    <dt class="title">배송 메모</dt>
+                                    <dd class="desc">부재시 경비실에</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </article>
+                </section>
+			</div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        
+    </footer>
+    <script src="/assets/js/common.js"></script>
+    <script type="module" src="/assets/js/common.js"></script>
+</body>
+
+</html>

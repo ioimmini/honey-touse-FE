@@ -1,0 +1,95 @@
+.request .hidden {
+    display: none;
+}
+
+.request .request_area {
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+
+.request .request_area .data {
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.request .request_area h1 {
+    text-align: center;
+}
+
+.request .request_area > * {
+    width: 100%;
+}
+
+.request .request_area #btnSubmit {
+    width: 100%;
+    padding: 17px 0;
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    background-color: #333;
+    box-sizing: border-box;    
+    border: none;
+    border-radius: 10px;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.request .request_area .select_list li {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 0px 15px;
+    box-sizing: border-box;
+    border-radius: 30px;
+    background-color: #ededf3;
+}
+
+.request .request_area .select_list li select {
+    width: 100%;
+    border: none;
+    color: #222;
+    padding: 10px 0px;
+    background-color: inherit;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.request .btn_line {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.request textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 30px;
+    border: solid black 2px;
+    box-shadow: none;
+    border-radius: 8px;
+}
+
+.request.return #selectedOption {
+    text-align: center;
+}
+
+.request.return button {
+    width: 49.5%;
+    padding: 17px 0;
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    border: none;
+    background-color: #333;
+}
+
+.request.return .product_img {
+    width: 78px;
+}

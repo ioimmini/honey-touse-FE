@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이페이지</title>
+    <!-- 스와이퍼 -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- 웹 폰트 나눔스퀘어 네오 -->
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/checkout/checkout.css">
+    <link rel="stylesheet" href="./order-list.css">
+    <link rel="stylesheet" href="/mypage/mypage.css">
+    <script src="https://kit.fontawesome.com/931727edad.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="header"></header>
+
+    <section class="order-list detail">
+        <div class="mypage">
+            <aside class="side" id="sidebar">
+                <!-- 사이드바 코드 들어갈 곳 -->
+            </aside>
+        </div>
+        <main class="orders" id="main-content">
+            <!-- 메뉴별 화면 들어갈 곳 -->
+            <div class="order-list_inner">
+                <h1>주문 상세</h1>
+                <p class="order-number">
+                    <span class="order_date">2024.01.30</span>
+                    (주문번호 :
+                    <span class="order_num"></span>
+                    )
+                </p>
+                <section class="info-product order-in-progress">
+                    <div class="section_title">
+                        <h2>주문 상품</h2>
+                        <span class="sub-title">2건</span>
+                    </div>
+                    <article class="section_content">
+                        <div class="wrap">
+                            <p class="order-status">
+                                결제 완료<span class="_date sub-text">2024.01.30</span>
+                            </p>
+                            <div class="info_line">
+                                <div class="product_img">
+                                    <img src="/assets/img/@product_01.jpg" alt="상품이미지.jpg" />
+                                </div>
+                                <div class="product_detail">
+                                    <p class="name">포근한 이불 베개 세트 (3colors)</p>
+                                    <p class="option sub-text">색상 : Ivory</p>
+                                    <p class="price">
+                                        15,000원
+                                        <span class="qty sub-text">1개</span>
+                                    </p>
+                                </div>
+                                <ul class="btn-list">
+                                    <li>
+                                        <button class="btn-order-detail" id="btnTracking">배송 조회</button>
+                                    </li>
+                                    <li>
+                                        <button class="btn-order-detail" id="btnCancleOrder">주문 취소</button>
+                                    </li>
+                                    <li>
+                                        <button class="btn-order-detail" id="btnModifyOrder">주문 수정</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="section_content order-cancelled">
+                        <div class="wrap">
+                            <p class="order-status">
+                                취소 완료<span class="_date sub-text">2024.01.30</span>
+                            </p>
+                            <div class="info_line">
+                                <div class="product_img">
+                                    <img src="/assets/img/@product_01.jpg" alt="상품이미지.jpg" />
+                                </div>
+                                <div class="product_detail">
+                                    <p class="name">포근한 이불 베개 세트 (3colors)</p>
+                                    <p class="option sub-text">색상 : Black</p>
+                                    <p class="price">
+                                        15,000원
+                                        <span class="qty sub-text">1개</span>
+                                    </p>
+                                </div>
+                                <ul class="btn-list">
+                                    <li>
+                                        <button class="btn-order-detail" id="btnQuestion">문의</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <section class="info-delivery">
+                    <div class="section_title">
+                        <h2>배송 정보</h2>
+                    </div>
+                    <article class="section_content">
+                        <div class="wrap">
+                            <dl class="info_list">
+                                <div class="info_line">
+                                    <dt class="title">수령인</dt>
+                                    <dd class="desc">엘리스</dd>
+                                </div>
+                                <div class="info_line">
+                                    <dt class="title">휴대폰</dt>
+                                    <dd class="desc">010-1234-5678</dd>
+                                </div>
+                                <div class="info_line">
+                                    <dt class="title">주소</dt>
+                                    <dd class="desc">00시 00구 00로00길 0-0 101호</dd>
+                                </div>
+                                <div class="info_line">
+                                    <dt class="title">배송 메모</dt>
+                                    <dd class="desc">부재시 경비실에</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </article>
+                </section>
+                <section class="payment">
+                    <div class="section_title">
+                        <h2>결제 내역</h2>
+                    </div>
+                    <article class="section_content">
+                        <div class="wrap">
+                            <dl class="payment_list">
+                                <div class="info_line">
+                                    <dt class="title">총 상품 금액</dt>
+                                    <dd class="desc">30,000원</dd>
+                                </div>
+                                <div class="info_line">
+                                    <dt class="title">총 배송비</dt>
+                                    <dd class="desc">0원</dd>
+                                </div>
+                                <hr />
+                                <div class="info_line ttl">
+                                    <dt class="title">총 결제 금액</dt>
+                                    <dd class="desc">30,000원</dd>
+                                </div>
+                                <hr />
+                                <div class="info_line">
+                                    <dt class="title">결제일시</dt>
+                                    <dd class="desc">${order_date}</dd>
+                                </div>
+                            </dl>
+                </section>
+                <section class="payment refund">
+                    <div class="section_title">
+                        <h2>환불 내역</h2>
+                    </div>
+                    <article class="section_content">
+                        <div class="wrap">
+                            <dl class="payment_list">
+                                <div class="info_line">
+                                    <dt class="title">총 상품 금액</dt>
+                                    <dd class="desc">15,000원</dd>
+                                </div>
+                                <div class="info_line">
+                                    <dt class="title">총 배송비</dt>
+                                    <dd class="desc">0원</dd>
+                                </div>
+                                <hr />
+                                <div class="info_line ttl">
+                                    <dt class="title">총 환불 금액</dt>
+                                    <dd class="desc">15,000원</dd>
+                                </div>
+                                <hr />
+                                <div class="info_line">
+                                    <dt class="title">환불일시</dt>
+                                    <dd class="desc">${refund_date}</dd>
+                                </div>
+                            </dl>
+                </section>
+            </div>
+        </main>
+    </section>
+    
+    <footer class="footer">
+
+    </footer>
+    <script src="./order-list.js"></script>
+    <!-- mypage 사이드바 스크립트 -->
+    <script src="./side-bar.js"></script>
+    <!-- 헤더/푸터 공동 스크립트 -->
+    <script type="module" src="/assets/js/common.js"></script>
+</html>
