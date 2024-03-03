@@ -1,3 +1,5 @@
+import { URL } from "../assets/js/constants";
+
 document.addEventListener("DOMContentLoaded", function () {
   // 주문 관리 버튼 클릭 시 주문 페이지 표시
   document.getElementById("orderBtn").addEventListener("click", function () {
@@ -10,7 +12,7 @@ function fetchOrdersPage() {
   const jwt = localStorage.getItem("jwt");
 
   // 주문 목록 조회 API를 호출하여 주문 상태별 버튼을 동적으로 생성
-  fetch("http://localhost:3000/api/v1/admin/orders", {
+  fetch(`${URL}/admin/orders`, {
     method: "GET",
     headers: {
       Authorization: "Bearer " + jwt,
@@ -24,15 +26,32 @@ function fetchOrdersPage() {
     })
     .then((data) => {
       const orders = data.data;
-      console.log(orders);
+      const pendingLength = orders.filter(
+        (item) => item.status == "입금 대기"
+      ).length;
+      const paidLength = orders.filter(
+        (item) => item.status == "결제 완료"
+      ).length;
+      const preparingLength = orders.filter(
+        (item) => item.status == "배송 준비"
+      ).length;
+      const shippingLength = orders.filter(
+        (item) => item.status == "배송 중"
+      ).length;
+      const deliveredLength = orders.filter(
+        (item) => item.status == "배송 완료"
+      ).length;
+      const confirmedLength = orders.filter(
+        (item) => item.status == "구매 확정"
+      ).length;
       document.getElementById("content").innerHTML = `
           <div id="order-button">
-            <button onclick="pending()">입금 대기</button>
-            <button onclick="paid()">결제 완료</button>
-            <button onclick="preparing()">배송 준비</button>
-            <button onclick="shipping()">배송 중</button>
-            <button onclick="delivered()">배송 완료</button>
-            <button onclick="confirmed()">구매 확정</button>
+            <button onclick="pending()">입금 대기 </br>${pendingLength}</button>
+            <button onclick="paid()">결제 완료</br>${paidLength}</button>
+            <button onclick="preparing()">배송 준비</br>${preparingLength}</button>
+            <button onclick="shipping()">배송 중</br>${shippingLength}</button>
+            <button onclick="delivered()">배송 완료</br>${deliveredLength}</button>
+            <button onclick="confirmed()">구매 확정</br>${confirmedLength}</button>
           </div>
           `;
     })
@@ -41,7 +60,7 @@ function fetchOrdersPage() {
     });
 }
 
-function pending() {
+window.pending = function pending() {
   const jwt = localStorage.getItem("jwt");
 
   fetch(`http://localhost:3000/api/v1/admin/orders/status?status=입금 대기`, {
@@ -58,6 +77,7 @@ function pending() {
     })
     .then((data) => {
       const orders = data.data;
+      console.log(orders.length);
       document.getElementById("content").innerHTML = `
           <div id="order-list">
           ${orders
@@ -86,9 +106,9 @@ function pending() {
         error
       );
     });
-}
+};
 
-function paid() {
+window.paid = function paid() {
   const jwt = localStorage.getItem("jwt");
 
   fetch(`http://localhost:3000/api/v1/admin/orders/status?status=결제 완료`, {
@@ -134,9 +154,9 @@ function paid() {
         error
       );
     });
-}
+};
 
-function preparing() {
+window.preparing = function preparing() {
   const jwt = localStorage.getItem("jwt");
 
   fetch(`http://localhost:3000/api/v1/admin/orders/status?status=배송 준비`, {
@@ -182,9 +202,9 @@ function preparing() {
         error
       );
     });
-}
+};
 
-function shipping() {
+window.shipping = function shipping() {
   const jwt = localStorage.getItem("jwt");
 
   fetch(`http://localhost:3000/api/v1/admin/orders/status?status=배송 중`, {
@@ -230,9 +250,9 @@ function shipping() {
         error
       );
     });
-}
+};
 
-function delivered() {
+window.delivered = function delivered() {
   const jwt = localStorage.getItem("jwt");
 
   fetch(`http://localhost:3000/api/v1/admin/orders/status?status=배송 완료`, {
@@ -278,9 +298,9 @@ function delivered() {
         error
       );
     });
-}
+};
 
-function confirmed() {
+window.confirmed = function confirmed() {
   const jwt = localStorage.getItem("jwt");
 
   fetch(`http://localhost:3000/api/v1/admin/orders/status?status=구매 확정`, {
@@ -326,12 +346,12 @@ function confirmed() {
         error
       );
     });
-}
+};
 
 // 주문 수정 함수
-function editOrder(orderId, status, memo) {
+window.editOrder = function editOrder(orderId, status, memo) {
   const newStatus = prompt("새로운 주문 상태를 입력하세요:", status);
-  const newMemo = prompt("새로운 주문 상태를 입력하세요:", memo);
+  const newMemo = prompt("새로운 주문 메모를 입력하세요:", memo);
   console.log(orderId, newStatus);
   if (
     newStatus === null ||
@@ -348,7 +368,7 @@ function editOrder(orderId, status, memo) {
   };
   const jwt = localStorage.getItem("jwt");
 
-  fetch(`http://localhost:3000/api/v1/admin/orders/${orderId}`, {
+  fetch(`${URL}/admin/orders/${orderId}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -366,16 +386,16 @@ function editOrder(orderId, status, memo) {
     .catch((error) => {
       console.error("주문 수정 중 오류 발생:", error);
     });
-}
+};
 
 // 주문 삭제 함수
-function deleteOrder(id) {
+window.deleteOrder = function deleteOrder(id) {
   if (!confirm("정말로 삭제하시겠습니까?")) {
     return;
   }
   const jwt = localStorage.getItem("jwt");
 
-  fetch(`http://localhost:3000/api/v1/admin/orders/${id}`, {
+  fetch(`${URL}/admin/orders/${id}`, {
     method: "DELETE",
     headers: {
       Authorization: "Bearer " + jwt,
@@ -391,4 +411,4 @@ function deleteOrder(id) {
     .catch((error) => {
       console.error("주문 삭제 중 오류 발생:", error);
     });
-}
+};

@@ -45,6 +45,9 @@ section.orders {
     font-family: "NanumSquareNeoHeavy";
     font-size: 24px;
 }
+.orders b {
+    font-family: "NanumSquareNeoHeavy";
+}
 .orders .sub-text {
     font-size: 14px;
     font-weight: normal;
@@ -216,13 +219,13 @@ section.orders {
     font-size: 0.8em;
 }
 .orders .payment_list .ttl .desc {
-    box-shadow: 0 -8px #FFC501 inset;
+    box-shadow: 0 -6px #FFC501 inset, 0 4px #FFC501;
 }
 
 /* checkout 전용 */
 .checkout .notice {
     padding: 1em;
-    background-color: #faf4e2;
+    background-color: #FFF8EA;
 }
 .checkout .form-order {
     width: 100%;

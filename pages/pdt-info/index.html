@@ -6,19 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>상품 상세페이지</title>
 
-	<!-- SWIPER -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
     <!-- 웹 폰트 나눔스퀘어 네오 -->
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
 	<link rel="stylesheet" href="/assets/css/style.css">
 		<link rel="stylesheet" href="./pdt-info.css">
     <script src="https://kit.fontawesome.com/931727edad.js" crossorigin="anonymous"></script>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+		<link rel="icon" href="../favicon.png">
 		<script type="module" src="/assets/js/common.js"></script>
-    <script defer src="./pdt-info.js" ></script>
+    <script type="module" defer src="./pdt-info.js" ></script>
 
 </head>
 
@@ -29,40 +25,16 @@
 			<div class="pdt-overview_container">
 				<div class="pdt-selling-overview_cover-image-wrap">
 					<div class="pdt-selling-cover-image-container">
-						<div class="swiper pdt-selling-cover-image-wrap">
-							<div class="swiper-wrapper pdt-selling-cover-list">
-								<div class="swiper-slide pdt-selling-cover-image_entry">
-									<div class="magnify">
-										<img class="bsImage" src="../assets/img/pdt_01.jpg" alt="스위스 라우터브루넨 커튼 2ver 3size"/>
-									</div>
-								</div>
-								<div class="swiper-slide pdt-selling-cover-image_entry">
-									<div class="magnify">
-										<img class="bsImage" src="../assets/img/pdt_02.jpg" alt="스위스 라우터브루넨 커튼 2ver 3size"/>
-									</div>
-								</div>
-								<div class="swiper-slide pdt-selling-cover-image_entry">
-									<div class="magnify">
-										<img class="bsImage" src="../assets/img/pdt_03.jpg" alt="스위스 라우터브루넨 커튼 2ver 3size"/>
-									</div>
-								</div>
-								<div class="swiper-slide pdt-selling-cover-image_entry">
-									<div class="magnify">
-										<img class="bsImage" src="../assets/img/pdt_04.jpg" alt="스위스 라우터브루넨 커튼 2ver 3size"/>
-									</div>
-								</div>
-							</div>
-							<a class="swiper-button-prev swiper-navigation" href="#" title="Prev">Prev</a>
-							<a class="swiper-button-next swiper-navigation" href="#" title="Next">Next</a>
+						<div class="pdt-selling-cover-image-wrap">
+							<div class="pdt-selling-cover-list"></div>
 						</div>
-						<ul class="swiper-pagination pdt-selling-cover-image_list"></ul>
 					</div>
 				</div>
 				<div class="pdt-detail-wrap">
 					<div class="pdt-header">
 						<h1 class="pdt-header-title">
 							<p class="pdt-brand-wrap">
-								<a class="pdt-brand" href="">MONREVE</a>
+								<a class="pdt-brand" href=""></a>
 							</p>
 							<div class="pdt-name-wrap">
 								<span class="pdt-name"></span>
@@ -143,14 +115,7 @@
 						<h3 class="pdt-selling-section_title">상품정보</h3>
 					</header>
 					<div class="pdt-selling-description pdt-selling-description-notice">
-						<div class="pdt-selling-description_content">
-							<p style="text-align: center;">
-								<img src="../assets/img/pdt_info_01.avif" alt="상품의 상세 설명 이미지">
-							</p>
-							<p style="text-align: center;">
-								<img src="../assets/img/pdt_info_02.avif" alt="상품의 상세 설명 이미지">
-							</p>
-						</div>
+						<div class="pdt-selling-description_content"></div>
 						<table class="pdt-selling-table">
 							<tbody>
 								<tr>
@@ -178,9 +143,17 @@
 					</div>
 				</div>
 				<a id="pdt-selling-review"></a>
-				<div class="pdt-selling-section"></div>
+				<div class="pdt-selling-section">
+					<header class="pdt-selling-section_header">
+						<h3 class="pdt-selling-section_title">상품후기</h3>
+					</header>
+				</div>
 				<a id="pdt-selling-question"></a>
-				<div class="pdt-selling-section"></div>
+				<div class="pdt-selling-section">
+					<header class="pdt-selling-section_header">
+						<h3 class="pdt-selling-section_title">문의</h3>
+					</header>
+				</div>
 				<a id="pdt-selling-delivery"></a>
 				<div class="pdt-selling-section">
 					<header class="pdt-selling-section_header">
@@ -309,10 +282,14 @@
 					</div>
 				</div>
 				<a id="pdt-selling-suggestion"></a>
+				<div class="pdt-selling-section">
+					<header class="pdt-selling-section_header">
+						<h3 class="pdt-selling-section_title">추천 상품</h3>
+					</header>
 			</div>
 		</section>
 		<div class="pdt-selling_top-button">
-			<button type="button" class="to-top" onclick="handleScroll()">
+			<button id="toTop" type="button" class="to-top" style="display: none;">
 				<span class="material-icons">expand_less</span>
 			</button>
 		</div>
@@ -323,9 +300,6 @@
 					<div class="alertly-button">
 						<button id="goShoppingBtn" class="button button-color-yellow-inverted" type="button">쇼핑 계속하기</button>
 						<button id="goBasketBtn" class="alertly-button-cart" type="button">장바구니 가기</button>
-					</div>
-					<div class="alertly-suggestion">
-						<h3 class="alertly-suggestion-title">추천 상품</h3>
 					</div>
 				</div>
 			</div>

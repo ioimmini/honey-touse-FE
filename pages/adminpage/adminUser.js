@@ -1,3 +1,5 @@
+import { URL } from "../assets/js/constants";
+
 document.addEventListener("DOMContentLoaded", function () {
   // 회원 관리 버튼
   document.getElementById("userBtn").addEventListener("click", function () {
@@ -8,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function fetchUsersPage() {
   const jwt = localStorage.getItem("jwt");
 
-  fetch("http://localhost:3000/api/v1/admin/userInfo", {
+  fetch(`${URL}/admin/userInfo`, {
     method: "GET",
     headers: {
       Authorization: "Bearer " + jwt,

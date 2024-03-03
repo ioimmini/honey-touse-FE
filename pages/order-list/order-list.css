@@ -44,11 +44,28 @@ section.order-list.detail {
     min-width: 220px;
     height: 100%;
 }
+.order-list .order_content {
+    display: flex;
+    justify-content: space-between;
+}
+.order-list .ordered-products {
+    width: 100%;
+    padding-right: 10px;
+}
+.order-list .info-order {
+    margin: 0 0 30px 0;
+}
+
+
 
 /* order-list/detail 전용 */
 
 .order-list.detail .order-number {
     margin-bottom: 40px;
+}
+.order-list.detail .order_date {
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .order-list.detail .info-product .section_content {
@@ -60,7 +77,7 @@ section.order-list.detail {
 }
 
 .order-list.detail .order-status {
-    margin-top: 10px;
+    margin: 10px 0 15px 0;
     font-weight: bold;
 }
 
@@ -73,18 +90,26 @@ section.order-list.detail {
 
 .order-list.detail .info-product .info_line {
     height: 100px;
+    margin: 0;
+    padding: 20px 0;
+}
+
+.order-list.detail .info-product .info_line:not(:last-child) {
+    border-bottom: 2px dashed #555;
 }
 
 .order-list.detail .info-product .btn-list {
     height: 100%;
+    width: 90px;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    text-align: end;
 }
 
 .order-list.detail .info-product .btn-order-detail {
     width: 88px;
-    margin-left: auto;
+    margin-bottom: 5px;
     border: 2px solid #333;
     border-radius: 10px;
     padding: 6px 1em;
@@ -99,4 +124,19 @@ section.order-list.detail {
 
 .order-list .order-status a {
     float: right;
+}
+/* mypage 주문내역 전용 */
+.mypage .con .order-list__menu {
+    border-radius: 20px;
+}
+.mypage .order-list .info-product h2 {
+    font-size: 20px;
+}
+.mypage .order-list .info-product .order-status {
+    font-size: 16px;
+}
+
+/* filter용 */
+.hidden {
+    display: none;
 }

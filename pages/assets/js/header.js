@@ -1,3 +1,6 @@
+import imgLogo from '../img/logo.png';
+import imgSearchBanner from '../img/search_banner.jpg';
+
 export const headerHTML = /*html*/`
 <div class="h_wrap">
     <div class="h_top_nav">
@@ -8,7 +11,7 @@ export const headerHTML = /*html*/`
                 </a>
             </li>
             <li>
-                <a href="/mypage/">
+                <a href="/login/" class="h_mypage_text">
                     마이페이지
                 </a>
             </li>
@@ -38,7 +41,7 @@ export const headerHTML = /*html*/`
     <div class="h_logo">
         <h1>
             <a href="/index.html">
-                <img class="hl_logo" src="/assets/img/logo.png" alt="" />
+                <img class="hl_logo" src="${imgLogo}" alt="" />
                 <img class="hl_bee" style="display: block;-webkit-user-select: none;margin: auto;" src="https://em-content.zobj.net/source/animated-noto-color-emoji/356/honeybee_1f41d.gif">
             </a>
         </h1>
@@ -103,6 +106,7 @@ export const headerHTML = /*html*/`
         <i class="fa-solid fa-xmark"></i>
     </button>
     <div class="search_inner">
+        
         <form action="/index.html" class="search_form">
             <input type="text" class="search_text">
             <button><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -117,6 +121,9 @@ export const headerHTML = /*html*/`
             <ul>
                
             </ul>
+            <div class="search_banner">
+                <img src="${imgSearchBanner}" alt="" />
+            </div>
         </div>
     </div>
 </section>

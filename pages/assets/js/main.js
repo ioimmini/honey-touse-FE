@@ -1,3 +1,6 @@
+import Swal from 'sweetalert2'
+import { URL } from '/assets/js/constants'
+
 // 메인01 슬라이드 스와이퍼
 let swiper = new Swiper(".main-slide__container", {
     speed: 800,
@@ -15,7 +18,7 @@ let swiper = new Swiper(".main-slide__container", {
 //베스트픽 목록
 const $main02ProductList = document.querySelector('.main02_product-list')
 let bestPickLi;
-fetch('http://localhost:3000/api/v1/products', {
+fetch(`${URL}/products`, {
     method: 'GET',
 }).then(response => response.json())
     .then(data => {
@@ -81,7 +84,7 @@ function createProductLi(data) {
 //엠디픽
 const $mdProductList = document.querySelector('.md_product-list');
 let mdPickLi;
-fetch('http://localhost:3000/api/v1/products?categoryId=65d996b13c5450608d6d9610', {
+fetch(`${URL}/products?categoryId=65d996b13c5450608d6d9610`, {
     method: 'GET',
 }).then(response => response.json())
     .then(data => {
@@ -113,7 +116,7 @@ function clickMdTag(url) {
     $mdTagList.forEach((el) => {
         el.querySelector('a').closest('li').classList.remove('on');
     })
-    fetch(`http://localhost:3000/api/v1/products?categoryId=${url}`, {
+    fetch(`${URL}/products?categoryId=${url}`, {
         method: 'GET',
     }).then(response => response.json())
         .then(data => {
@@ -129,5 +132,49 @@ function clickMdTag(url) {
         });
 }
 
+function clickBasketBtn(e) {
+    let basketItemList = JSON.parse(localStorage.getItem('basketItemList')) ?? [];
+    const productId = e.closest('li').id;
+    fetch(`${URL}/products/${productId}`, {
+        method: 'GET',
+    }).then(response => response.json())
+        .then(data => {
+            let isDone = false;
+            for (let obj of basketItemList) {
+                if (obj.id === data.data._id) {
+                    obj.count++;
+                    isDone = true;
+                    break;
+                }
+            }
+            if (!isDone) {
+                basketItemList.push({
+                    ...data.data,
+                    id: data.data._id,
+                    count: 1,
+                    isChecked: false,
+                    allOption: {
+                        [data.data.options?.name]: data.data.options?.value,
+                    },
+                    choiceOption: {
+                        [data.data.options?.name]: data.data.options?.value[0],
+                    },
+                })
+            }
+            console.log(basketItemList);
+            localStorage.setItem('basketItemList', JSON.stringify(basketItemList));
+            Swal.fire({
+                title: "장바구니에 담겼습니다.",
+                text: `${data.data.name}`,
+                icon: "success",
+                customClass: {
+                    container: 'custom-popup'
+                }
+            });
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
 
-
+window.clickBasketBtn = clickBasketBtn;

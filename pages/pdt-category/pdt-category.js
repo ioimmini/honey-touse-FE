@@ -1,5 +1,8 @@
+import Swal from 'sweetalert2'
+import {URL} from '../assets/js/constants'
+
 async function fetchCategoryId(categoryName) {
-  const res = await fetch('http://127.0.0.1:3000/api/v1/categories')
+  const res = await fetch(`${URL}/categories`)
   const resData = await res.json()
   if (!resData || !Array.isArray(resData.data)) {
     console.error('카테고리 데이터가 유효하지 않습니다.')
@@ -17,7 +20,7 @@ async function productsByCategory(categoryName) {
     return
   }
   try {
-    const res = await fetch(`http://127.0.0.1:3000/api/v1/products?categoryId=${categoryId}`)
+    const res = await fetch(`${URL}/products?categoryId=${categoryId}`)
     const resData = await res.json()
     if (!resData || !Array.isArray(resData.data)) {
       console.error('제품 데이터가 유효하지 않습니다.')
@@ -25,6 +28,7 @@ async function productsByCategory(categoryName) {
     }
     updateCategoryName(categoryName)
     checkProducts(resData.data)
+    console.log(resData.data)
   } catch (error) {
     console.error('제품을 조회하는 중 에러가 발생했습니다:', error)
   }
@@ -39,16 +43,17 @@ function updateCategoryName(categoryName) {
 function checkProducts(products) {
   const productList = document.getElementById('pdtList')
   const productHTML = products.map(product => `
-    <li class="pdt-list-item">
+    <li id="${product._id}" class="pdt-list-item">
       <div class="pdt-box">
         <div class="pdt-content-image">
-          <a href="/pdt-info/">
+          <i class="fa-solid fa-bag-shopping pl_basketBtn" onclick="goToBasketBtn(this)"></i>
+          <a href="/pdt-info/?id=${product._id}">
             <img src="${product.image}" alt="${product.name}">
           </a>
         </div>
         <div class="pdt-content-image-info">
           <p class="pdt-name">
-            <a href="/pdt-info/">${product.name}</a>
+            <a href="/pdt-info/?id=${product._id}">${product.name}</a>
           </p>
           <p class="pdt-price">
             <span>${product.price.toLocaleString('ko-KR')}원</span>
@@ -59,6 +64,53 @@ function checkProducts(products) {
   `).join('')
   productList.innerHTML = productHTML
 }
+
+function goToBasketBtn(e) {
+  let basketItemList = JSON.parse(localStorage.getItem('basketItemList')) ?? [];
+  const productId = e.closest('li').id;
+  fetch(`${URL}/products/${productId}`, {
+      method: 'GET',
+  }).then(response => response.json())
+      .then(data => {
+          let isDone = false;
+          for (let obj of basketItemList) {
+              if (obj.id === data.data._id) {
+                  obj.count++;
+                  isDone = true;
+                  break;
+              }
+          }
+          if (!isDone) {
+              basketItemList.push({
+                  ...data.data,
+                  id: data.data._id,
+                  count: 1,
+                  isChecked: false,
+                  allOption: {
+                      [data.data.options?.name]: data.data.options?.value,
+                  },
+                  choiceOption: {
+                      [data.data.options?.name]: data.data.options?.value[0],
+                  },
+              })
+          }
+          console.log(basketItemList);
+          localStorage.setItem('basketItemList', JSON.stringify(basketItemList));
+          Swal.fire({
+              title: "장바구니에 담겼습니다.",
+              text: `${data.data.name}`,
+              icon: "success",
+              customClass: {
+                  container: 'custom-popup'
+              }
+          });
+      })
+      .catch((error) => {
+          console.error('Error:', error);
+      });
+}
+window.goToBasketBtn = goToBasketBtn;
+
 
 // 페이지 로드 시 카테고리 이름 파라미터를 가져와 해당 카테고리의 제품 조회
 window.addEventListener('DOMContentLoaded', () => {

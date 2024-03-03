@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2'
+import { URL } from '/assets/js/constants'
 //유효성 체크
 const $joinName = document.querySelector('.join_name');
 $joinName.addEventListener('input', function () {
@@ -100,7 +101,7 @@ function sendConfirmEmail(evt) {
     }
 
     const data = { email };
-    fetch('http://localhost:3000/api/v1/auth/send-confirmation-email', {
+    fetch(`${URL}/auth/send-confirmation-email`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -146,7 +147,7 @@ function confirmEmail(evt) {
     }
 
     const data = { email, inputNumber };
-    fetch('http://localhost:3000/api/v1/auth/confirm-email', {
+    fetch(`${URL}/auth/confirm-email`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -231,7 +232,7 @@ function registerJoin(evt) {
     }
 
     const data = { name, phoneNumber, email, password, address, addressDetail };
-    fetch('http://localhost:3000/api/v1/auth/sign-up', {
+    fetch(`${URL}/auth/sign-up`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

@@ -13,6 +13,7 @@
   padding: 25px 20px;
   box-sizing: border-box;
   height: auto;
+  border-bottom: 2px solid #ffc501;
 }
 .main-category-name {
   display: flex;
@@ -73,10 +74,29 @@ pdt-content-category-inner > li {
   padding-bottom: 100%;
   overflow: hidden;
 }
+.pdt-content-image > i {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  font-size: 16px;
+  opacity: 0.5;
+  cursor: pointer;
+
+}
 .pdt-content-image > a > img {
   position: absolute;
   top: 50%;
   left: 50%;
+  height: 100%;
   width: 100%;
   transform: translate(-50%,-50%);
   transition: transform .2s;

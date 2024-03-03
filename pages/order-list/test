@@ -1,0 +1,143 @@
+    <section class="info-product info-order">
+        <div class="section_title">
+            <h2>${item.createdAt}</h2>
+        </div>
+        <article class="section_content order-in-progress wrap">
+            <p class="order-status">
+                ${item.status}<span class="_date sub-text">${item.updatedAt.slice(0, 10)}</span> // 수정: updatedAt으로 변경
+                <a href="./detail.html"><span>상세보기</span></a>
+            </p>
+            <div class="info_line">
+                <div class="product_img">
+                    <img src="" alt="" />
+                </div>
+                <div class="product_detail">
+                    <p class="name"></p>
+                    <p class="option sub-text"></p>
+                    <p class="price">
+                        
+                        <span class="qty sub-text">${item.product.count}개</span>
+                    </p>
+                </div>
+                <ul class="btn-list">
+                <--! status에 따라 버튼 추가하는 자리 -->
+                </ul>
+            </div>
+        </article>
+        <hr />    
+    </section>
+
+
+
+
+    // 각 객체의 데이터에 접근하여 section 생성
+    if (datas) {
+        datas.forEach(item => {
+            let ttlProductQty = 0;
+            item.product.forEach(item => {
+                ttlProductQty += item.count;
+            })
+            let sectionHTML = `
+                <section class="info-product info-order">
+                    <div class="section_title">
+                        <h2>${item.createdAt.replace('T', ' ').slice(0, 19)}</h2>
+                    </div>
+                    <article class="section_content order-in-progress wrap">
+                    <p class="order-status">
+                        ${item.status}<span class="_date sub-text">${item.updatedAt.slice(0, 10)}</span>
+                        <a href="./detail.html"><span>상세보기</span></a>
+                    </p>
+                    <div class="info_line">
+                        <div class="product_img">
+                            <img src="" alt="" />
+                        </div>
+                        <div class="product_detail">
+                            <p class="name"></p>
+                            <p class="option sub-text"></p>
+                            <p class="price">
+                                
+                                <span class="qty sub-text">${ttlProductQty}개</span>
+                            </p>
+                        </div>
+                        <ul class="btn-list">
+                        <--! status에 따라 버튼 추가하는 자리 -->
+                        </ul>
+                    </div>
+                </article>
+                <hr />    
+            </section>
+            `;
+            $orders.innerHTML += sectionHTML;
+
+
+
+
+<!-- 완성본 예시 -->
+<section class="info-product info-order">
+    <div class="section_title">
+        <h2>${item.createdAt}</h2>
+    </div>
+    <article class="section_content order-in-progress wrap">
+        <p class="order-status">
+            ${item.status}<span class="_date sub-text">${item.updatedAt.slice(0, 10)}</span>
+            <a href="./detail.html"><span>상세보기</span></a>
+        </p>
+        <div class="info_line">
+            <div class="product_img">
+                <img src="" alt="" />
+            </div>
+            <div class="product_detail">
+                <p class="name"></p>
+                <p class="option sub-text"></p>
+                <p class="price">
+                    
+                    <span class="qty sub-text">${productItem.count}개</span>
+                </p>
+            </div>
+        </div>
+        <hr />   
+        <ul class="btn-list">
+            <li>
+                <button class="btn-order-detail" id="btnTracking">배송 조회</button>
+            </li>    
+        </ul>
+    </article>
+</section>;
+
+
+<!-- 최종 완성본 -->
+
+<li class="info-product info-order">
+    <div class="section_title">
+        <h2>${item.createdAt}</h2>
+    </div>
+    <article class="section_content order-in-progress wrap">
+        <p class="order-status">
+            ${item.status}<span class="_date sub-text">${item.updatedAt.slice(0, 10)}</span>
+            <a href="./detail.html"><span>상세보기</span></a>
+        </p>
+        <div class="order_content">
+            <ul class="ordered-products">
+                <li class="info_line">
+                    <div class="product_img">
+                        <img src="" alt="" />
+                    </div>
+                    <div class="product_detail">
+                        <p class="name"></p>
+                        <p class="option sub-text"></p>
+                        <p class="price">
+                            
+                            <span class="qty sub-text">${productItem.count}개</span>
+                        </p>
+                    </div>
+                </li>
+                <hr />   
+            </ul>
+            <ul class="btn-list">
+                <li>
+                    <button class="btn-order-detail" id="btnTracking">배송 조회</button>
+                </li>    
+            </ul>
+        </div>
+    </article>
+</li>                    

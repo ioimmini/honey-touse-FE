@@ -169,8 +169,12 @@
   width: 150px;
   height: 150px;
   border-radius: 30%;
-  overflow: hidden;
   background-color: black;
+}
+.adminpage .user_thumb img {
+  width: 100%;
+  height: 100%;
+  border-radius: 30%;
 }
 
 /* 메인컨텐츠 유저디테일 */
@@ -194,7 +198,12 @@
   font-size: 17px;
   line-height: 18px;
 }
-
+.adminpage .info_box {
+  margin: 20px;
+}
+.adminpage .username {
+  font-size: 1.4rem;
+}
 /* 메인컨텐츠 배송내역 */
 .adminpage .order-list__menu {
   display: -webkit-box;

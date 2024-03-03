@@ -32,111 +32,17 @@
             <div class="order-list_inner">
                 <h1>주문 내역</h1>
                 <div class="order-date-select">
-                    <select>
+                    <select id="dateFilter">
                         <option value="" selected disabled>날짜조회</option>
-                        <option value="0">1주 전</option>
-                        <option value="1">1개월 전</option>
+                        <option value="all">전체</option>
+                        <option value="2024-03-02">오늘</option>
+                        <option value="2024-03-01">1일 전</option>
+                        <option value="2024-02-29">2일 전</option>
+                        <option value="2024-02-28">3일 전</option>
                     </select>
                 </div>
-                <section class="info-product">
-                    <div class="section_title">
-                        <h2>${order_date}</h2>
-                    </div>
-                    <div class="wrap">
-                        <article class="section_content order-in-progress">
-                            <p class="order-status">
-                                배송완료<span class="_date sub-text">2024.01.30</span>
-                                <a href="./detail.html"><span>상세보기</span></a>
-                            </p>
-                            <div class="info_line">
-                                <div class="product_img">
-                                    <img src="../assets/img/@product_01.jpg" alt="상품이미지.jpg" />
-                                </div>
-                                <div class="product_detail">
-                                    <p class="name">포근한 이불 베개 세트 (3colors)</p>
-                                    <p class="option sub-text">색상 : Ivory</p>
-                                    <p class="price">
-                                        15,000원
-                                        <span class="qty sub-text">1개</span>
-                                    </p>
-                                </div>
-                                <ul class="btn-list">
-                                    <li>
-                                        <button class="btn-order-detail" id="btnTracking">배송 조회</button>
-                                    </li>
-                                    <li>
-                                        <button class="btn-order-detail" id="btnReturnOrder">교환 반품</button>
-                                    </li>
-                                    <li>
-                                        <button class="btn-order-detail" id="btnQuestion">문의</button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                </section>
-                <section class="info-product">
-                    <div class="section_title">
-                        <h2>${order_date}</h2>
-                    </div>
-                    <div class="wrap">
-                        <article class="section_content order-in-progress">
-                            <p class="order-status">
-                                결제 완료<span class="_date sub-text">2024.01.30</span>
-                                <a href="./detail.html"><span>상세보기</span></a>
-                            </p>
-                            <div class="info_line">
-                                <div class="product_img">
-                                    <img src="/assets/img/@product_01.jpg" alt="상품이미지.jpg" />
-                                </div>
-                                <div class="product_detail">
-                                    <p class="name">포근한 이불 베개 세트 (3colors)</p>
-                                    <p class="option sub-text">색상 : Ivory</p>
-                                    <p class="price">
-                                        15,000원
-                                        <span class="qty sub-text">1개</span>
-                                    </p>
-                                </div>
-                                <ul class="btn-list">
-                                    <li>
-                                        <button class="btn-order-detail" id="btnTracking">배송 조회</button>
-                                    </li>
-                                    <li>
-                                        <button class="btn-order-detail" id="btnCancleOrder">주문 취소</button>
-                                    </li>
-                                    <li>
-                                        <button class="btn-order-detail" id="btnModifyOrder">주문 수정</button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                        <hr />
-                        <article class="section_content order-cancelled">
-                            <p class="order-status">
-                                취소 완료<span class="_date sub-text">2024.01.30</span>
-                                <a href="./detail.html"><span>상세보기</span></a>
-                            </p>
-                            <div class="info_line">
-                                <div class="product_img">
-                                    <img src="/assets/img/@product_01.jpg" alt="상품이미지.jpg" />
-                                </div>
-                                <div class="product_detail">
-                                    <p class="name">포근한 이불 베개 세트 (3colors)</p>
-                                    <p class="option sub-text">색상 : Black</p>
-                                    <p class="price">
-                                        15,000원
-                                        <span class="qty sub-text">1개</span>
-                                    </p>
-                                </div>
-                                <ul class="btn-list">
-                                    <li>
-                                        <button class="btn-order-detail" id="btnQuestion">문의</button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </article>
-                    </div>
-                </section>
+                <ul id="orders">
+                </ul>
             </div>
         </main>
     </section>
@@ -144,9 +50,9 @@
     <footer class="footer">
         
     </footer>
-    <script src="./order-list.js"></script>
+    <script type="module" src="./order-list.js"></script>
     <!-- mypage 사이드바 스크립트 -->
-    <script src="./side-bar.js"></script>
+    <script type="module" src="./side-bar.js"></script>
     <!-- 헤더/푸터 공동 스크립트 -->
     <script type="module" src="/assets/js/common.js"></script>
 </html>

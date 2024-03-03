@@ -29,6 +29,22 @@
   box-shadow: none;
 }
 
+/* 마이페이지 메인창 텍스트 */
+
+.mypage .user_info{
+  margin-top: 5px;
+}
+.mypage .userName{
+  margin-top: 15px;
+  padding-left: 15px;
+  font-size: xx-large;
+}
+
+.mypage .email{
+  font-size: large;
+}
+
+
 
 /* 폰트두깨종류 */
 .mypage .semi-bold {
@@ -98,16 +114,20 @@
 }
 
 /* 프로필관리 버튼 */
-.mypage .profile_btn{
+.mypage .profile_btn {
   margin-left: 15px;
   padding: 10px;
   box-sizing: border-box;
-  border: 2px solid black;
+  border: 2px solid #FFC501;;
   color: rgba(34,34,34,.8);
   font-size: 15px;
   font-weight: bold;
   border-radius: 10px;
-  background-color: white;
+  background-color: #FFC501;;
+  cursor: pointer;
+}
+
+.mypage .profile_click{
   cursor: pointer;
 }
 
@@ -181,6 +201,7 @@
   overflow: hidden;
   background-color: black;
   cursor: pointer;
+  z-index: 1;
 }
 
 .mypage .profile_txt{
@@ -191,54 +212,108 @@
 
 .mypage .user_name{
   display: flex;
+  font-size: xx-large;
+  padding-top: 5px;
   margin-left: 20px;
-  padding-left: 30px;
+  padding-left: 10px;
 }
 
 .mypage .user_email{
   display: flex;
-  padding-top: 20px;
-  padding-left: 30px;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 5px;
+  font-size: x-large;
 }
 
+/* 팝업 비밀번호 변경 */
 .mypage .user_change_pass{
-  margin-top: 15px;
-  margin-left: 300px;
-  margin-right: 700px;
-  padding: 15px 0;
-  box-sizing: border-box;
-  border: 3px solid black;
-  color: rgba(34,34,34,.8);
-  font-size: 15px;
-  font-weight: bold;
-  border-radius: 10px;
-  background-color: white;
-  cursor: pointer;
+  text-align: left;
+  padding-left: 30px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
+.mypage .user_pass_text{
+  padding-right: 500px;
+
+}
+
+.user_pass_input {
+  box-sizing: border-box;
+  flex: 1 0 0%;
+  vertical-align: middle;
+  outline: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  height: 100%;
+  color: #2F3438;
+  outline: none;
+  font-size: 16px;
+  line-height: 24px;
+  padding-right: 6px;
+}
+
+.user_pass_input-02 {
+  box-sizing: border-box;
+  flex: 1 0 0%;
+  vertical-align: middle;
+  outline: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  height: 100%;
+  color: #2F3438;
+  outline: none;
+  font-size: 16px;
+  line-height: 24px;
+  padding-right: 6px;
+}
+
+.mypage .user_pass_tle {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  border: 1px solid rgb(218, 221, 224);
+  border-radius: 4px;
+  height: 30px;
+  padding: 0px 14px;
+  width: 45%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+/* 팝업 하단 확인 취소 버튼 */
 .mypage .user_button{
   position:relative;
   
-  margin-top: 200px;
-  margin-right: 200px;
+  margin-top: 60px;
+  margin-right: 230px;
 }
 
 .mypage .user_agree{
-  margin-right: 5px;
-  padding: 20px;
+  margin-right: 2px;
+  padding: 10px;
   box-sizing: border-box;
   border: 2px solid black;
-  color: rgba(34,34,34,.8);
+  color: rgb(255, 255, 255);
   font-size: 25px;
   font-weight: bold;
   border-radius: 10px;
-  background-color: white;
+  background-color: rgb(0, 0, 0);
   cursor: pointer;
 }
 
 .mypage .user_cancle{
-  margin-left: 5px;
-  padding: 20px;
+  margin-left: 2px;
+  padding: 10px;
   box-sizing: border-box;
   border: 2px solid black;
   color: rgba(34,34,34,.8);
@@ -285,39 +360,18 @@
 
 /* 메인컨텐츠 배송내역 */
 .mypage .order-list__menu{
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
   display: flex;
   margin-top: 5px;
   box-shadow: 0 1px 3px 0 #dbdbdb;
   height: 100px;
   border-radius: 4px;
-  padding: 10px
+  padding: 10px;
 }
 
 .mypage .order-list__menu__list{
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 0 0px;
-  -moz-box-flex: 1;
-  -moz-flex: 1 0 0px;
-  -ms-flex: 1 0 0px;
   flex: 1 0 0px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
   align-items: center;
   position: relative;
   cursor: pointer;
@@ -392,10 +446,6 @@
 }
 
 .mypage .carousel__list__entry {
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
@@ -408,29 +458,13 @@
 }
 
 .mypage .carousel__list {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: nowrap;
-  -moz-flex-wrap: nowrap;
-  -ms-flex-wrap: none;
   flex-wrap: nowrap;
-  -webkit-box-align: stretch;
-  -ms-flex-align: stretch;
-  -webkit-align-items: stretch;
-  -moz-align-items: stretch;
   align-items: stretch;
   min-height: 100%;
 }
 
 .mypage .carousel__list__entry {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 auto;
-  -moz-box-flex: 0;
-  -moz-flex: 0 0 auto;
-  -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   box-sizing: border-box;
 }
@@ -456,7 +490,7 @@
   transition: opacity .1s;
 }
 
-.mypage .carousel__ui__left.scroller-hide,.carousel__ui__left>.active,.carousel__ui__right.scroller-hide,.carousel__ui__right>.active {
+.mypage .carousel__ui__left>.carousel__ui__left>.active,.carousel__ui__right.scroller-hide,.carousel__ui__right>.active {
   opacity: 0;
 }
 
@@ -534,10 +568,6 @@
 }
 
 .mypage .order-list-carousel-indicator__list {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -568,5 +598,4 @@
 a:link { color:black; }
 a:visited { color:black; }
 a:hover { color:gray; }
-
 

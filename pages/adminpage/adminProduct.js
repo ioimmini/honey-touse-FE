@@ -1,3 +1,5 @@
+import { URL } from "../assets/js/constants";
+
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("productBtn").addEventListener("click", function () {
     fetchProductsPage();
@@ -6,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // 상품 관리 페이지 표시 함수
 function fetchProductsPage() {
-  fetch("http://localhost:3000/api/v1/products", {
+  fetch(`${URL}/products`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -45,7 +47,14 @@ function fetchProductsPage() {
 }
 
 // 상품 수정 함수
-function editProduct(id, name, price, brand, optionName, optionValue) {
+window.editProduct = function editProduct(
+  id,
+  name,
+  price,
+  brand,
+  optionName,
+  optionValue
+) {
   const newName = prompt("새로운 상품명을 입력하세요:", name);
   const newPrice = prompt("새로운 가격을 입력하세요:", price);
   const newBrand = prompt("새로운 브랜드를 입력하세요:", brand);
@@ -74,7 +83,7 @@ function editProduct(id, name, price, brand, optionName, optionValue) {
   };
   const jwt = localStorage.getItem("jwt");
 
-  fetch(`http://localhost:3000/api/v1/admin/products/${id}`, {
+  fetch(`${URL}/admin/products/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -92,16 +101,16 @@ function editProduct(id, name, price, brand, optionName, optionValue) {
     .catch((error) => {
       console.error("상품 수정 중 오류 발생:", error);
     });
-}
+};
 
 // 상품 삭제 함수
-function deleteProduct(id) {
+window.deleteProduct = function deleteProduct(id) {
   if (!confirm("정말로 삭제하시겠습니까?")) {
     return;
   }
   const jwt = localStorage.getItem("jwt");
 
-  fetch(`http://localhost:3000/api/v1/admin/products/${id}`, {
+  fetch(`${URL}/admin/products/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -118,4 +127,4 @@ function deleteProduct(id) {
     .catch((error) => {
       console.error("상품 삭제 중 오류 발생:", error);
     });
-}
+};

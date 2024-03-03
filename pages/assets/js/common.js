@@ -1,7 +1,6 @@
 import { headerHTML } from './header'
 import { footerHTML } from './footer';
 
-
 // HTML 로딩이 완료된 후 실행할 코드
 window.addEventListener('load', () => {
     // 헤더푸터 로딩
@@ -58,10 +57,12 @@ window.addEventListener('load', () => {
     //jwt토큰 있을시 마이페이지 클릭시 로그인페이지가 아닌 마이페이지로 넘김
     const jwt = localStorage.getItem('jwt');
     const $hMypageBtn = document.querySelector('.h_mypage-btn');
+    const $hMypageText = document.querySelector('.h_mypage_text');
     const $hLogin = document.querySelector('.h_login');
     const $hLoginOut = document.querySelector('.h_login-out');
     if (jwt) {
         $hMypageBtn.href = '/mypage/'
+        $hMypageText.href = '/mypage/'
         $hLoginOut.classList.remove('on');
         $hLogin.classList.add('on');
     }

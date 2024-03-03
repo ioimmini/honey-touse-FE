@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2'
+import { URL } from '/assets/js/constants'
 
 //유호성체크
 const $loginEmail = document.querySelector('.login_email');
@@ -38,11 +39,18 @@ function registerLogin(evt) {
     const password = evt.target.password.value;
 
     if (!email || !password) {
-        return alert('아이디, 비밀번호 모두 입력하세요');
+        Swal.fire({
+            title: "아이디, 비밀번호 모두 입력하세요",
+            icon: "warning",
+            customClass: {
+                container: 'custom-popup'
+            }
+        });
+        return;
     }
 
     const data = { email, password };
-    fetch('http://localhost:3000/api/v1/auth/sign-in', {
+    fetch(`${URL}/auth/sign-in`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

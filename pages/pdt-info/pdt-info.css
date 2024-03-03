@@ -4,9 +4,9 @@
 }
 .pdt-info >.container {
   max-width: 1300px;
-  margin: 0px auto;
+  margin: 0 auto;
   box-sizing: border-box;
-  padding: 0px 30px;
+  padding: 0 30px;
   height: auto;
 }
 .pdt-overview_container {
@@ -26,59 +26,28 @@
 }
 .pdt-selling-cover-image-wrap {
   position: relative; 
-  left: 0px; 
+  left: 0; 
   width: 500px; 
   height: 500px;
   float: right;
-}
-.pdt-selling-cover-image-container .swiper-navigation {
+  border-radius: 15px;
   overflow: hidden;
+}
+.pdt-selling-cover-list {
   position: absolute;
-  top: 250px;
-  width: 38px;
-  height: 38px;
-  text-indent: -999em;
-  background-image: url(../assets/img/pdt_info_mage_nav.png);
-  background-repeat: no-repeat;
-  cursor: pointer;
-  z-index: 3;
 }
-.pdt-selling-cover-image-container .swiper-button-prev {
-  display: inline;
-  left: 11px;
-  background-position: 0 0;
-}
-.pdt-selling-cover-image-container .swiper-button-next {
-  right: 11px;
-  background-position: 100% 0;
-}
-.pdt-selling-cover-image_list {
-  position: relative !important;
-  margin: 0 10px 0 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  float: right;
-  z-index: 3;
-  width: 60px !important;
-}
-.pdt-selling-cover-image_list > .swiper-pagination-bullet {
-  position: relative;
-  float: left;
-  width: 50px;
-  height: 50px;
-  margin: 5px 10px 10px 0 !important;
-  box-sizing: border-box;
-  cursor: pointer;
-  background-color: #bdbdbd;
-}
-.pdt-selling-cover-image_list > .swiper-pagination-bullet-active > img {
-  border: #ffc501 solid 2px;
+.pdt-selling-cover-image_entry > img {
+  position: absolute;
+  width: 500px;
+  object-fit: cover;
+	height:500px;
 }
 .pdt-detail-wrap {
   position: relative;
   width: 570px;
   float: right;
+  object-fit: contain;
+  border: #000;
 }
 .pdt-header {
   padding: 29px 0 0 0;
@@ -164,6 +133,7 @@
 }
 .selling-option-select-input_option > select {
   border-radius: 10px;
+  border: #ffc501 2px solid;
   font-size: 15px;
   height: 40px;
   width: 100%;
@@ -185,13 +155,13 @@
   position: relative;
   margin-bottom: 10px;
   padding: 15px;
-  background-color: #bdbdbd;
+  background-color: #FFF8EA;
   border-radius: 10px;
   color: #000;
 }
 .selling-option-form-content_list > li > h3 {
   font-size: 20px;
-  line-height: 18px;
+  line-height: 30px;
   padding: 0 24px 10px 0;
 }
 .selling-option-form-content_list > li > .pdt-options {
@@ -228,7 +198,7 @@
   background-color: #fff;
   color: #000;
   border: 1px solid #000;
-  border-radius: 3px;
+  border-radius: 5px;
   margin-top: 10px;
 }
 .selling-option-form-content_list > li > .pdt-info-container-inner > .pdt-quantity > button {
@@ -276,25 +246,27 @@
 .pdt-selling-option-form_footer > .button-color-yellow-inverted {
   width: 100%;
   box-sizing: border-box;
-  padding: 17px 0px;
+  padding: 17px 0;
   text-align: center;
   color: #000;
-  border: #000 solid 2px;
+  border: #ffc501 solid 2px;
   background-color: #fff;
   border-radius: 10px;
   font-size: 20px;
+  font-weight: 700;
   margin: 0 3px;
 }
 .pdt-selling-option-form_footer .button-color-yellow {
   width: 100%;
   box-sizing: border-box;
-  padding: 17px 0px;
+  padding: 17px 0;
   text-align: center;
-  color: #fff;
-  border: #000 solid 2px;
+  color: #000;
+  border: #ffc501 solid 2px;
   border-radius: 10px;
-  background-color: #333;
+  background-color: #ffc501;
   font-size: 20px;
+  font-weight: 700;
   margin: 0 3px;
 }
 .pdt-selling-nav_wrap {
@@ -339,6 +311,7 @@
 .pdt-selling-nav_item-active {
   color:#ffc501;
   border-bottom: 3px solid #ffc501;
+  animation-duration: 3s
 }
 .pdt-selling-section {
   padding: 50px 70px 60px 70px;
@@ -441,7 +414,6 @@
 .pdt-selling-refund_list >li small {
   color: #000;
 }
-
 .pdt-selling_top-button {
   overflow: visible;
   position: fixed;
@@ -450,7 +422,7 @@
   margin: 0 0 0;
   margin-bottom: env(safe-area-inset-botto, 0);
   padding: 10px;
-  border: 0px;
+  border: 0;
   background: none;
   z-index: 999;
   cursor: pointer;
@@ -460,14 +432,13 @@
   padding: 0;
   border: none;
   background: none rgb(255, 255, 255);
-  box-shadow: rgba(63, 71, 77, 0.25) 0px 2px 10px;
+  box-shadow: rgba(63, 71, 77, 0.25) 0 2px 10px;
   height: 48px;
   width: 48px;
   line-height: 0;
   color: #000;
   border-radius: 50%;
 }
-
 .alertly {
   z-index: 800;
   position: fixed;
@@ -485,14 +456,14 @@
   top: 25%;
   margin: auto;
   width: 500px;
-  border-radius: 8px;
+  border-radius: 15px;
   max-height: 100%;
   overflow: auto;
   box-sizing: border-box;
 }
 .alertly-inner {
   width: 500px;
-  height: 400px;
+  height: 250px;
   background-color: #fff;
   border-radius: 8px;
   box-sizing: border-box;
@@ -503,12 +474,12 @@
   font-size: 20px;
   line-height: 24px;
   text-align: center;
-  margin: 35px;
+  margin: 50px 0;
 }
 .alertly-button {
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
+  margin: 50px 0;
 }
 .alertly-button .button-color-yellow-inverted {
   display: inline-block;
@@ -517,6 +488,7 @@
   color: #000;
   border: #000 solid 2px;
   background-color: #fff;
+  font-weight: 700;
   border-radius: 10px;
   font-size: 16px;
   padding: 15px 45px;
@@ -526,21 +498,12 @@
   display: inline-block;
   box-sizing: border-box;
   text-align: center;
-  color: #fff;
-  border: #000 solid 2px;
+  color: #000;
+  border: #ffc501 solid 2px;
   border-radius: 10px;
-  background-color: #000;
+  background-color: #ffc501;
   font-size: 16px;
+  font-weight: 700;
   padding: 15px 45px;
   margin: 0 3px;
-}
-.alertly-suggestion {
-  border-top: 1px solid #bdbdbd;
-  margin: 8px 20px 0;
-  padding: 0 30px;
-}
-.alertly-suggestion-title {
-  font-size: 20px;
-  line-height: 24px;
-  margin: 20px 10px;
 }

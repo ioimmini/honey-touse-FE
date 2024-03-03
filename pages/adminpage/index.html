@@ -10,6 +10,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+    <link rel="shortcut icon" href="../favicon.png" type="image/x-icon" />
 
     <!-- 웹 폰트 나눔스퀘어 네오 -->
     <link
@@ -65,13 +66,14 @@
           <article class="con" id="content">
             <div class="user_detail">
               <label class="user_thumb">
-                <img src="" alt="사용자 이미지" srcset="" class="thumb_img" />
+                <img
+                  src="../assets/img/admin_profile.jpg"
+                  alt="사용자 이미지"
+                />
               </label>
-              <div class="user_info">
-                <div class="info_box">
-                  <strong class="username">관리자</strong>
-                  <p class="email">c*******1@gmail.com</p>
-                </div>
+              <div class="info_box">
+                <strong class="username">관리자 계정</strong>
+                <strong class="admin-info"></strong>
               </div>
             </div>
           </article>
@@ -82,10 +84,10 @@
     <script type="module" src="../assets/js/common.js"></script>
     <footer class="footer"></footer>
     <!-- 스크립트연결 -->
-    <script src="adminpage.js"></script>
-    <script src="adminUser.js"></script>
-    <script src="adminOrder.js"></script>
-    <script src="adminCategory.js"></script>
-    <script src="adminProduct.js"></script>
+    <script type="module" src="adminpage.js"></script>
+    <script type="module" src="adminUser.js"></script>
+    <script type="module" src="adminOrder.js"></script>
+    <script type="module" src="adminCategory.js"></script>
+    <script type="module" src="adminProduct.js"></script>
   </body>
 </html>

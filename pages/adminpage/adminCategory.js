@@ -1,11 +1,13 @@
-document.addEventListener("DOMContentLoaded", function () {
+import { URL } from "../assets/js/constants";
+
+window.addEventListener("DOMContentLoaded", function () {
   document.getElementById("categoryBtn").addEventListener("click", function () {
     fetchCategoriesPage();
   });
 });
 
 function fetchCategoriesPage() {
-  fetch("http://localhost:3000/api/v1/categories", {
+  fetch(`${URL}/categories`, {
     method: "GET",
     headers: {
       Authorization: localStorage.getItem("access_token"),
@@ -43,7 +45,7 @@ function fetchCategoriesPage() {
     });
 }
 
-function editCategory(categoryId, categoryName) {
+window.editCategory = function editCategory(categoryId, categoryName) {
   const newName = prompt("새로운 카테고리 이름을 입력하세요", categoryName);
   console.log(categoryId, newName);
   if (newName === null || newName.trim() === "") {
@@ -56,7 +58,7 @@ function editCategory(categoryId, categoryName) {
   console.log(updatedData.name);
   const jwt = localStorage.getItem("jwt");
 
-  fetch(`http://localhost:3000/api/v1/categories/${categoryId}`, {
+  fetch(`${URL}/admin/categories/${categoryId}`, {
     method: "PUT",
     headers: {
       Authorization: "Bearer " + jwt,
@@ -74,14 +76,14 @@ function editCategory(categoryId, categoryName) {
     .catch((error) => {
       console.error("카테고리 수정 중 오류 발생:", error);
     });
-}
+};
 
-function deleteCategory(categoryId) {
+window.deleteCategory = function deleteCategory(categoryId) {
   if (!confirm("정말로 삭제하시겠습니까?")) {
     return;
   }
   const jwt = localStorage.getItem("jwt");
-  fetch(`http://localhost:3000/api/v1/admin/categories/${categoryId}`, {
+  fetch(`${URL}/admin/categories/${categoryId}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -98,4 +100,4 @@ function deleteCategory(categoryId) {
     .catch((error) => {
       console.error("카테고리 삭제 중 오류 발생:", error);
     });
-}
+};

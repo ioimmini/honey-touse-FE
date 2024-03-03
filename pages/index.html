@@ -4,7 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>쇼핑몰</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="author" content="3TEAM"/>
+    <meta name="Keywords" content="인테리어 소품"/>
+    <meta name="title" content="꿀단집"/>
+    <meta name= "Description" content="가구 · 패브릭 · 수납/정리 · 생활용품 · 조명 다양한 디자인의 인테리어 제품을 만나보세요. ✓300여 브랜드 ✓다양한 세일 ✓합리적인 가격" />
+    <link rel="icon" href="favicon.png">
+    <title>꿀단집</title>
     <!-- 스와이퍼 -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -142,56 +148,6 @@
 
 </body>
 
-
 <script defer type="module" src="/assets/js/main.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    function clickBasketBtn(e) {
-        let basketItemList = JSON.parse(localStorage.getItem('basketItemList')) ?? [];
-        const productId = e.closest('li').id;
-        fetch(`http://localhost:3000/api/v1/products/${productId}`, {
-            method: 'GET',
-        }).then(response => response.json())
-            .then(data => {
-                let isDone = false;
-                for (let obj of basketItemList) {
-                    if (obj.id === data.data._id) {
-                        obj.count++;
-                        isDone = true;
-                        break;
-                    }
-                }
-                if (!isDone) {
-                    basketItemList.push({
-                        ...data.data,
-                        id: data.data._id,
-                        count: 1,
-                        isChecked: false,
-                        allOption: {
-                            [data.data.options?.name]: data.data.options?.value,
-                        },
-                        choiceOption: {
-                            [data.data.options?.name]: data.data.options?.value[0],
-                        },
-                    })
-                }
-                console.log(basketItemList);
-                localStorage.setItem('basketItemList', JSON.stringify(basketItemList));
-                Swal.fire({
-                    title: "장바구니에 담겼습니다.",
-                    text: `${data.data.name}`,
-                    icon: "success",
-                    customClass: {
-                        container: 'custom-popup'
-                    }
-                });
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-    }
-</script>
-
 
 </html>

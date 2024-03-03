@@ -7,6 +7,7 @@
     <meta name="description" content="주문결제가 완료되면 보이는 페이지입니다.">
     <title>쇼핑몰</title>
     <!-- 웹 폰트 나눔스퀘어 네오 -->
+    <link rel="icon" href="../favicon.png">
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-neo.css" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="./checkout.css">
@@ -23,8 +24,7 @@
             <div class="result_area">
                 <h1>✨주문·결제 완료✨</h1>
                 <p class="data sub-text">
-                    <span class="order_date">2024.01.30</span>
-                    (주문번호 :
+                    ( 주문번호 :
                     <span class="order_num"></span>
                     )
                 </p>
@@ -82,7 +82,7 @@
                             <hr />
                             <div class="info_line">
                                 <dt class="title">결제일시</dt>
-                                <dd class="desc">${order_date}</dd>
+                                <dd class="desc" id="orderDate"></dd>
                             </div>
                         </dl>
                     </article>
